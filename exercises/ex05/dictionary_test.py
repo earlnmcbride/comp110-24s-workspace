@@ -1,4 +1,4 @@
-"""Dictionary Unit Tests"""
+"""Dictionary Unit Tests."""
 __author__ = "730395850"
 from exercises.ex05.dictionary import invert, favorite_color, count, alphabetizer, update_attendance
 import pytest
@@ -15,7 +15,7 @@ def test_invert_use_case() -> None:
 def test_invert_use_case_2() -> None:
     """Tests if the function inverts keys and values in the dictionary."""
     input_dict = {"d": "dog", "e": "elephant", "f": "fish"}
-    output = {"dog": "d", "elephant": "e","fish": "f"}
+    output = {"dog": "d", "elephant": "e", "fish": "f"}
     assert invert(input_dict) == output
 
 
@@ -25,7 +25,7 @@ def test_invert_edge_case() -> None:
     with pytest.raises(KeyError):
         invert(input_dict)
 
-# count
+
 def test_count_use_case() -> None: 
     """Tests if the function counts the frequency of each value in the list."""
     pizza_toppings = ["pepperoni", "bacon", "veggies", "veggies", "bacon", "bacon"]
@@ -43,24 +43,25 @@ def test_count_edge_case() -> None:
     pizza_toppings = ["pepperoni", "pepperoni", "veggies", "veggies"]
     assert count(pizza_toppings) == {"pepperoni": 2, "veggies": 2}
 
-# favorite_color unit tests
 
 def test_favorite_color_use_case() -> None:
     """Tests if function returns the most frequent color."""
     colors = {"Rachel": "blue", "Earl": "red", "Emily": "blue"}
     assert favorite_color(colors) == "blue"
 
+
 def test_favorite_color_use_case_2() -> None:
     """Test if function returns the most frequent color."""
     colors = {"Rachel": "blue", "Earl": "purple", "Emily": "purple"}
     assert favorite_color(colors) == "purple"
+
 
 def test_favorite_color_edge_case() -> None:
     """Test if all colors have the same frequency."""
     colors = {"Rachel": "pink", "Earl": "pink", "Emily": "pink"}
     assert favorite_color(colors) == "pink"
 
-# alphabetizer unit tests
+
 def test_alphabetizer_use_case() -> None:
     """Tests if each value is alphabetized by being put into a list."""
     random_words = ["salt", "pepper", "basil", "cinnamon"]
@@ -79,13 +80,15 @@ def test_alphabetizer_edge_case() -> None:
     """Tests alphabetizer function with edge case. where there are multiple words with the same starting letter."""
     random_words = ["salt", "basil", "cinnamon", "cilantro"]
     output = {"b": ["basil"], "c": ["cilantro", "cinnamon"], "s": ["salt"]}
+    assert alphabetizer(random_words) == output
 
-# update_attendance
+
 def test_update_attendance_use_case() -> None:
     """Tests if funtion updates attendance with students for a particular day."""
     attendance = {"Tuesday": ["Thomas"]}
     update_attendance(attendance, "Wednesday", "Willy")
     assert attendance == {"Tuesday": ["Thomas"], "Wednesday": ["Willy"]}
+
 
 def test_update_attendance_use_case_2() -> None: 
     """Tests if funtion updates attendance with students for the same day."""
@@ -99,13 +102,3 @@ def test_update_attendance_edge_case() -> None:
     attendance = {}
     update_attendance(attendance, "Tuesday", "Thomas")
     assert attendance == {"Tuesday": ["Thomas"]}
-
-
-
-
-
-
-    
-
-
-    
